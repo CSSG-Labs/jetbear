@@ -70,7 +70,7 @@ class Bear(object):
         surface.blit(self.image, (self.x, self.y))
 
 class Base:
-    VEL = 5
+    VEL = 0.5
     WIDTH = base_image.get_width()
     IMG = base_image
 
@@ -81,8 +81,8 @@ class Base:
         self.vel = 0
 
     def move(self, vel = VEL):
-        self.x1 -= self.vel
-        self.x2 -= self.vel
+        self.x1 -= vel
+        self.x2 -= vel
 
         if(self.x1 + self.WIDTH < 0):
             self.x1 = self.x2 + self.WIDTH
@@ -95,7 +95,7 @@ class Base:
         win.blit(self.IMG, (self.x2, self.y))
 
 class Background_Top:
-    VEL = 1
+    VEL = 2
     WIDTH = bg_image.get_width()
     IMG = bg_image
 
@@ -154,7 +154,7 @@ def main():
             bear.draw(win)
         else:
             #insert splash screen animation logic
-            base.move(2)
+            base.move()
             base.draw(win)
         
         pg.display.update()
