@@ -105,8 +105,8 @@ class Background_Top:
         self.x2 = self.WIDTH
 
     def move(self, vel = VEL):
-        self.x1 -= self.vel
-        self.x2 -= self.vel
+        self.x1 -= vel
+        self.x2 -= vel
 
         if(self.x1 + self.WIDTH < 0):
             self.x1 = self.x2 + self.WIDTH
