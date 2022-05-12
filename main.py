@@ -13,7 +13,8 @@ pg.display.set_caption("JetBear! The Game!")
 bg_image = pg.image.load(os.path.join('assets/images', 'bgtop.png'))
 splash_image = pg.image.load(os.path.join('assets/images', 'Splash.png'))
 start = pg.image.load(os.path.join('assets/images', 'start.png'))
-bear_image = pg.image.load(os.path.join('assets/images', 'bear.png'))
+bear_jetpack_on = pg.image.load(os.path.join('assets/images', 'bear.png'))
+bear_jetpack_off = pg.image.load(os.path.join('assets/images', 'idle.png'))
 base_image = pg.image.load(os.path.join('assets/images', 'bgbottom.png'))
 
 #TODO: Make these ALLCAPS. Also make the image assets ALLCAPS?
@@ -28,7 +29,7 @@ win = pg.display.set_mode((width, height))
 
 class Bear(object):
     def __init__(self):
-        self.image = bear_image
+        self.image = bear_jetpack_on
         self.x = width / 4
         self.y = height / 2
         self.yChange = 0
@@ -65,9 +66,11 @@ class Bear(object):
         self.checkBorder()
 
     def startJetpack(self):
+        self.image = bear_jetpack_on
         self.yChange = -6
 
     def startGravity(self):
+        self.image = bear_jetpack_off
         self.yChange = 8
 
     def draw(self, surface):
